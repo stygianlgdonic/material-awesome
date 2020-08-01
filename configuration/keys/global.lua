@@ -12,15 +12,13 @@ local globalKeys =
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
   -- Tag browsing
-  awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  awful.key({modkey}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  awful.key({modkey}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
   -- Default client focus
   awful.key(
     {modkey},
-    'd',
+    'Right',
     function()
       awful.client.focus.byidx(1)
     end,
@@ -28,7 +26,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey},
-    'a',
+    'Left',
     function()
       awful.client.focus.byidx(-1)
     end,
@@ -127,7 +125,7 @@ local globalKeys =
   -- Standard program
   awful.key(
     {modkey},
-    'x',
+    'Return',
     function()
       awful.spawn(apps.default.terminal)
     end,
@@ -347,30 +345,6 @@ local globalKeys =
     {description = 'open default program for tag/workspace', group = 'tag'}
   ),
   -- Custom hotkeys
-  -- vfio integration
-  awful.key(
-    {'Control',altkey},
-    'space',
-    function()
-      awful.util.spawn_with_shell('vm-attach attach')
-    end
-  ),
-  -- Lutris hotkey
-  awful.key(
-    {modkey},
-    'g',
-    function()
-      awful.util.spawn_with_shell('lutris')
-    end
-  ),
-  -- System Monitor hotkey
-  awful.key(
-    {modkey},
-    'm',
-    function()
-      awful.util.spawn_with_shell('mate-system-monitor')
-    end
-  ),
   -- Kill VLC
   awful.key(
     {modkey},
